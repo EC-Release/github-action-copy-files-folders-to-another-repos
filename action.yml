@@ -1,0 +1,14 @@
+name: 'Github actions copy files to other repositories'
+description: 'Will be used to copy files from working location to another repositories'
+inputs:
+  DESTINATION_REPOS_BRANCHES:
+    description: ''
+    required: true
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.DESTINATION_REPOS_BRANCHES }}
+branding:
+  icon: 'git-commit'
+  color: 'green'
