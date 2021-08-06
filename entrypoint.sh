@@ -5,6 +5,7 @@ set -x
 
 echo "Reading input variables"
 DESTINATION_REPOS_BRANCHES="$1"
+SOURCE_DIR="$2"
 WORK_DIR=`pwd`
 
 git config --global user.email "$GIT_USEREMAIL"
@@ -24,7 +25,7 @@ do
   git clone --single-branch --branch ${arrRepo[1]} "https://x-access-token:$API_TOKEN_GITHUB@${arrRepo[0]}" "$CLONE_DIR"
   ls -al $CLONE_DIR
   ls -al $CLONE_DIR/
-  cp -R "k8s/pkg" "$CLONE_DIR/"
+  cp -R "$SOURCE_DIR" "$CLONE_DIR/"
   cd "$CLONE_DIR"
   git add .
 
