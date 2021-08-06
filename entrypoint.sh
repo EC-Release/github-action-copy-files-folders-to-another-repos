@@ -4,12 +4,14 @@ set -e
 set -x
 
 echo "Reading input variables"
-DESTINATION_REPOS_BRANCHES="$1"
-SOURCE_DIR="$2"
+SOURCE_DIR="$1"
+DESTINATION_REPOS_BRANCHES="$2"
 WORK_DIR=`pwd`
 
 git config --global user.email "$GIT_USEREMAIL"
 git config --global user.name "$GIT_USERNAME"
+
+printf "\n\n $SOURCE_DIR \n $DESTINATION_REPOS_BRANCHES \n\n"
 
 for repo in $DESTINATION_REPOS_BRANCHES
 do

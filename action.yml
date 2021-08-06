@@ -11,8 +11,8 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.DESTINATION_REPOS_BRANCHES }}
     - ${{ inputs.SOURCE_DIR }}
+    - ${{ inputs.DESTINATION_REPOS_BRANCHES }}
 branding:
   icon: 'git-commit'
   color: 'green'
