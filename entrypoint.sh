@@ -35,7 +35,7 @@ do
   then
     git status
     git commit -m "checking files"
-#    git push origin ${arrIN[1]}
+    git push origin ${arrIN[1]}
   else
     echo "No changes detected"
   fi
