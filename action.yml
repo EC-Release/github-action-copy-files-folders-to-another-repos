@@ -7,12 +7,16 @@ inputs:
   DESTINATION_REPOS_BRANCHES:
     description: 'destinations repo and branches list'
     required: true
+  COMMIT_MESSAGE:
+    description: 'commit message'
+    required: true
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
     - ${{ inputs.SOURCE_DIR }}
     - ${{ inputs.DESTINATION_REPOS_BRANCHES }}
+    - ${{ inputs.COMMIT_MESSAGE }}
 branding:
   icon: 'git-commit'
   color: 'green'
