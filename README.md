@@ -6,7 +6,7 @@ Github actions workflow to copy folders from one repository to another repositor
 Property Name | Description | Sample data |
 ------------- | ----------- | ------------|
 SOURCE_DIR | Source directory to copy files | k8s/pkg |
-DESTINATION_REPOS_BRANCHES | List of repos and branches| "ec-release/oci.git:disty ec-release/helmcharts.git:disty" |
+DESTINATION_REPOS_BRANCHES | List of repos and branches. Entries will be separated by space. <br/> E.g: {repo-name}:{branch-name} {repo-name}:{branch-name} | "ec-release/oci.git:disty ec-release/helmcharts.git:disty" |
 COMMIT_MESSAGE | Commit message for checking in files in dest repo | |
 
 #### Example usage
