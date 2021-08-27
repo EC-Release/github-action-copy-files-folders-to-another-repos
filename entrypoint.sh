@@ -43,7 +43,7 @@ do
     else
       printf "\n\n Creating tag and push \n\n"
       git tag -a $TAG_NAME -m "$COMMIT_MESSAGE"
-      git push origin $$TAG_NAME
+      git push origin $TAG_NAME
     fi
   else
     echo "No changes detected"
