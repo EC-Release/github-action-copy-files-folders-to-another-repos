@@ -13,7 +13,7 @@ WORK_DIR=`pwd`
 git config --global user.email "$GIT_USEREMAIL"
 git config --global user.name "$GIT_USERNAME"
 
-printf "\n\n $SOURCE_DIR \n $DESTINATION_REPOS_BRANCHES \n $COMMIT_MESSAGE \n\n"
+printf "\n\n $SOURCE_DIR \n $DESTINATION_REPOS_BRANCHES \n $COMMIT_MESSAGE \n $TAG_NAME \n\n"
 
 for repo in $DESTINATION_REPOS_BRANCHES
 do
