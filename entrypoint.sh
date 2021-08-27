@@ -35,15 +35,15 @@ do
   if git status | grep -q "Changes to be committed"
   then
     git status
+    git commit -m "$COMMIT_MESSAGE"
     if [ -z $TAG_NAME ]
     then
       printf "\n\n Pushing to repo and branch \n\n"
-      git commit -m "$COMMIT_MESSAGE"
       git push origin ${arrRepo[1]}
     else
       printf "\n\n Creating tag and push \n\n"
-      git tag -a $TAG_NAME -m "$COMMIT_MESSAGE"
-      git push origin $TAG_NAME
+      git tag $TAG_NAME
+      git push -f origin ${arrRepo[1]} --tags
     fi
   else
     echo "No changes detected"
