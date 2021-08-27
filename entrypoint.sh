@@ -7,6 +7,7 @@ echo "Reading input variables"
 SOURCE_DIR="$1"
 DESTINATION_REPOS_BRANCHES="$2"
 COMMIT_MESSAGE="$3"
+TAG_NAME="$4"
 WORK_DIR=`pwd`
 
 git config --global user.email "$GIT_USEREMAIL"
@@ -34,8 +35,16 @@ do
   if git status | grep -q "Changes to be committed"
   then
     git status
-    git commit -m "$COMMIT_MESSAGE"
-    git push origin ${arrIN[1]}
+    if [ -z $TAG_NAME ]
+    then
+      printf "\n\n Pushing to repo and branch \n\n"
+      git commit -m "$COMMIT_MESSAGE"
+      git push origin ${arrRepo[1]}
+    else
+      printf "\n\n Creating tag and push \n\n"
+      git tag -a $TAG_NAME -m "$COMMIT_MESSAGE"
+      git push origin $$TAG_NAME
+    fi
   else
     echo "No changes detected"
   fi
